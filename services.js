@@ -21,23 +21,24 @@ function getCharacters() {
 }
 
 function getEpisodes() {
-    axios
-      .get(`${rickAndMortyApi}//episode`)
-      .then(function (response) {
-        const charArray = response.data.results;
-        charArray.map(function (item) {
-          console.log(item.name);
-        });
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
+  axios
+    .get(`${rickAndMortyApi}//episode`)
+    .then(function (response) {
+      const charArray = response.data.results;
+      charArray.map(function (item) {
+        console.log(item.name);
       });
-  }
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+}
 
 module.exports = {
   getCharacters,
+  getEpisodes,
 };
