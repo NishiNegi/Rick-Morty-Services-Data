@@ -1,4 +1,5 @@
-const start = require("./services.js");
+const services = require('./services');
+const getCharacters = services.getCharacters
 
 const search = process.argv[2];
 const id = process.argv[3];
