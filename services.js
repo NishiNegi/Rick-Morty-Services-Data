@@ -59,4 +59,5 @@ function getCharactersById(id) {
 module.exports = {
   getCharacters,
   getEpisodes,
+  getCharactersById,
 };
