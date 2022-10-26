@@ -56,25 +56,26 @@ function getCharactersById(id) {
 }
 
 function getEpisodesById(id) {
-    axios
-      .get(`${rickAndMortyApi}/episode/${id}`)
-      .then(function (response) {
-        const epData = response.data;
-        const name = epData.name;
-        const ep = epData.episode
-        console.log(`${ep}: ${name}`);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      });
-  }
+  axios
+    .get(`${rickAndMortyApi}/episode/${id}`)
+    .then(function (response) {
+      const epData = response.data;
+      const name = epData.name;
+      const ep = epData.episode;
+      console.log(`${ep}: ${name}`);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+}
 
 module.exports = {
   getCharacters,
   getEpisodes,
   getCharactersById,
+  getEpisodesById,
 };
