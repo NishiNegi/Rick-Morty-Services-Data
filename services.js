@@ -22,7 +22,7 @@ function getCharacters() {
 
 function getEpisodes() {
   axios
-    .get(`${rickAndMortyApi}//episode`)
+    .get(`${rickAndMortyApi}/episode`)
     .then(function (response) {
       const epArray = response.data.results;
       epArray.map(function (item) {
@@ -39,13 +39,30 @@ function getEpisodes() {
 }
 
 function getCharactersById(id) {
-    axios
-      .get(`${rickAndMortyApi}/character/${id}`)
-      .then(function (response) {
-        const charData = response.data;
-        const name = charData.name
-        console.log(name)
+  axios
+    .get(`${rickAndMortyApi}/character/${id}`)
+    .then(function (response) {
+      const charData = response.data;
+      const name = charData.name;
+      console.log(name);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+}
 
+function getEpisodesById(id) {
+    axios
+      .get(`${rickAndMortyApi}/episode/${id}`)
+      .then(function (response) {
+        const epData = response.data;
+        const name = epData.name;
+        const ep = epData.episode
+        console.log(`${ep}: ${name}`);
       })
       .catch(function (error) {
         // handle error
