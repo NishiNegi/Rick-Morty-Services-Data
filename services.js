@@ -24,8 +24,8 @@ function getEpisodes() {
   axios
     .get(`${rickAndMortyApi}//episode`)
     .then(function (response) {
-      const charArray = response.data.results;
-      charArray.map(function (item) {
+      const epArray = response.data.results;
+      epArray.map(function (item) {
         console.log(item.name);
       });
     })
@@ -37,6 +37,24 @@ function getEpisodes() {
       // always executed
     });
 }
+
+function getCharactersById(id) {
+    axios
+      .get(`${rickAndMortyApi}/character/${id}`)
+      .then(function (response) {
+        const charData = response.data;
+        const name = charData.name
+        console.log(name)
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  }
 
 module.exports = {
   getCharacters,
